@@ -60,3 +60,18 @@
   font-size: 18px;
   font-weight: 600;
 }
+
+.weather-sevenDays {
+  margin: 30px auto;
+  /* border: 1px solid; */
+
+  height: 150px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 7px;
+}
+.weather-sevenDays > div {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 3px;
+  /* height: 100%; */
+}
