@@ -1,0 +1,36 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.homeContainer{
+    border: 1px solid black;
+    width: 60%;
+    margin:10px auto;
+    height: 800px;
+}
+
+.searchBar{
+    border: 1px solid blue;
+    /* width: 100%; */
+    /* margin: 0 1%; */
+    gap: 5px;
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+}
+.logoDiv{
+    width:50px;
+    margin-left: 5px;
+    border: 1px solid pink;
+}
+
+.inputDiv{
+    width: 100%;
+    border: 1px solid teal;
+}
+.searchIconDiv{
+    margin-right: 5px;
+    width: 50px;
+    border: 1px solid pink;
+}
