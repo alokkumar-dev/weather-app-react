@@ -4,81 +4,42 @@ import searchIcon from "../../Icons/search.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
 export const HomePage = () => {
-  const [oneDayWeahter, setOneDayWeather] = useState({});
-  const [sevenDayWeahter, setSevenDayWeather] = useState([]);
-  // const [data, setData] = useState({});
-
-  const [city, setCity] = useState("");
+  const [searchWeather, setSetWeather] = useState("");
+  const [weather, setWeather] = useState([]);
+  useEffect(() => {
+    getData();
+  }, [searchWeather]);
   const handleChange = (e) => {
-    // setSearch(e.target.value);
-    setCity(e.target.value);
-    getWeather();
+    // console.log(e.target.value)
+    setSetWeather(e.target.value);
+    // console.log(searchWeather);
+  };
+  const getData = async () => {
+    // let city = "patna"; //input from user.
+    // console.log(search,"f")
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchWeather}&appid=000ea10fae727b5e0d08edbb2b5f07c0`;
+    try {
+      let res = await fetch(url);
+      let data = await res.json();
+      let lat = data.coord.lat;
+      let lon = data.coord.lon;
+      getDatafor7days(lat, lon);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const getWeather = () => {
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f54708523bef7b62ad34716409be8714&units=metric`
-      )
-      .then((res) => {
-        setOneDayWeather(res.data);
-      });
-
-    // seven days weaher
-    const lon = oneDayWeahter.coord.lon;
-    const lat = oneDayWeahter.coord.lat;
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=f54708523bef7b62ad34716409be8714&units=metric`
-      )
-      .then((res) => {
-        setSevenDayWeather(res.data.daily);
-        // console.log(res);
-      });
+  const getDatafor7days = async (lat, lon) => {
+    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=000ea10fae727b5e0d08edbb2b5f07c0`;
+    try {
+      let res = await fetch(url);
+      let data = await res.json();
+      console.log("data", data);
+      setWeather(data.daily);
+    } catch (error) {
+      console.log(error);
+    }
   };
-  // console.log(sevenDayWeahter);
-  // for (let i = 0; i < sevenDayWeahter.length; i++) {
-  //   // sevenDayWeahter[i]
-  //   let date = new Date(sevenDayWeahter[i].dt * 1000);
-  //   if (date.getDay == 0) {
-  //     setData.day = "Sun";
-  //     setData.maxtemp = `Max-${Math.floor(sevenDayWeahter[i].temp.max)} °C`;
-  //     setData.mintemp = `Min-${Math.floor(sevenDayWeahter[i].temp.min)} °C`;
-  //     setData.icon = `https://openweathermap.org/img/wn/${sevenDayWeahter[i].weather[0].icon}@2x.png`;
-  //   }
-  //   else if (date.getDay == 1) {
-  //     setData.day = "Mon";
-  //     setData.maxtemp = `Max-${Math.floor(sevenDayWeahter[i].temp.max)} °C`;
-  //     setData.mintemp = `Min-${Math.floor(sevenDayWeahter[i].temp.min)} °C`;
-  //     setData.icon = `https://openweathermap.org/img/wn/${sevenDayWeahter[i].weather[0].icon}@2x.png`;
-  //   }
-  //   else if (date.getDay == 2) {
-  //     setData.day = "Tue";
-  //     setData.maxtemp = `Max-${Math.floor(sevenDayWeahter[i].temp.max)} °C`;
-  //     setData.mintemp = `Min-${Math.floor(sevenDayWeahter[i].temp.min)} °C`;
-  //     setData.icon = `https://openweathermap.org/img/wn/${sevenDayWeahter[i].weather[0].icon}@2x.png`;
-  //   }  else if (date.getDay == 4) {
-  //     setData.day = "Wed";
-  //     setData.maxtemp = `Max-${Math.floor(sevenDayWeahter[i].temp.max)} °C`;
-  //     setData.mintemp = `Min-${Math.floor(sevenDayWeahter[i].temp.min)} °C`;
-  //     setData.icon = `https://openweathermap.org/img/wn/${sevenDayWeahter[i].weather[0].icon}@2x.png`;
-  //   }  else if (date.getDay == 5) {
-  //     setData.day = "Thu";
-  //     setData.maxtemp = `Max-${Math.floor(sevenDayWeahter[i].temp.max)} °C`;
-  //     setData.mintemp = `Min-${Math.floor(sevenDayWeahter[i].temp.min)} °C`;
-  //     setData.icon = `https://openweathermap.org/img/wn/${sevenDayWeahter[i].weather[0].icon}@2x.png`;
-  //   }  else if (date.getDay == 6) {
-  //     setData.day = "Fri";
-  //     setData.maxtemp = `Max-${Math.floor(sevenDayWeahter[i].temp.max)} °C`;
-  //     setData.mintemp = `Min-${Math.floor(sevenDayWeahter[i].temp.min)} °C`;
-  //     setData.icon = `https://openweathermap.org/img/wn/${sevenDayWeahter[i].weather[0].icon}@2x.png`;
-  //   }  else if (date.getDay == 7) {
-  //     setData.day = "Sat";
-  //     setData.maxtemp = `Max-${Math.floor(sevenDayWeahter[i].temp.max)} °C`;
-  //     setData.mintemp = `Min-${Math.floor(sevenDayWeahter[i].temp.min)} °C`;
-  //     setData.icon = `https://openweathermap.org/img/wn/${sevenDayWeahter[i].weather[0].icon}@2x.png`;
-  //   }
-  // }
   return (
     <>
       <div className="homeContainer">
@@ -100,13 +61,16 @@ export const HomePage = () => {
         </div>
         {/* {data.map((temp) => ( */}
         <div className="weather-sevenDays">
-          {sevenDayWeahter.map((temp) => (
-            console.log(temp)
-            // <div>
-            //   <h5>{}</h5>
-            //   <h5>{}</h5>
-            //   <h5>{}</h5>
-            // </div>
+          {weather.map((el, index) => (
+            <div key={index}>
+              <div className="tempDivs">
+              <h5>{Math.floor(el.temp.max - 273)} °C</h5>
+              <h5>{Math.floor(el.temp.max - 273)} °C</h5>
+              </div>
+              <p>{el.weather[0].description}</p>
+
+              <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="temprecutre logo" />
+            </div>
           ))}
         </div>
         {/* ))} */}

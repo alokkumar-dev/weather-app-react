@@ -67,11 +67,16 @@
 
   height: 150px;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 7px;
 }
 .weather-sevenDays > div {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 3px;
   /* height: 100%; */
+}
+.tempDivs{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px ;
 }
