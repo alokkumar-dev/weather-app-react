@@ -3,6 +3,7 @@ import locationLogo from "../../Icons/location.png";
 import searchIcon from "../../Icons/search.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Graph } from "./tempGraph/TempGraph";
 export const HomePage = () => {
   const [searchWeather, setSetWeather] = useState("");
   const [weather, setWeather] = useState([]);
@@ -64,16 +65,21 @@ export const HomePage = () => {
           {weather.map((el, index) => (
             <div key={index}>
               <div className="tempDivs">
-              <h5>{Math.floor(el.temp.max - 273)} °C</h5>
-              <h5>{Math.floor(el.temp.max - 273)} °C</h5>
+                <h5>{Math.floor(el.temp.max - 273)} °C</h5>
+                <h5>{Math.floor(el.temp.max - 273)} °C</h5>
               </div>
               <p>{el.weather[0].description}</p>
 
-              <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="temprecutre logo" />
+              <img
+                src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`}
+                alt="temprecutre logo"
+              />
             </div>
           ))}
         </div>
-        {/* ))} */}
+        <div className="temp_graph">
+         <Graph />
+        </div>
       </div>
     </>
   );
