@@ -14,6 +14,7 @@ export const HomePage = () => {
     // console.log(e.target.value)
     setSetWeather(e.target.value);
     // console.log(searchWeather);
+    console.cog(searchWeather);
   };
   const getData = async () => {
     // let city = "pune"
