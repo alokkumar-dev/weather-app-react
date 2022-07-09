@@ -4,7 +4,7 @@ import searchIcon from "../../Icons/search.png";
 import { useEffect, useState } from "react";
 import { Graph } from "./tempGraph/TempGraph";
 export const HomePage = () => {
-  const [searchWeather, setSetWeather] = useState("");
+  const [searchWeather, setSetWeather] = useState("pune");
   const [weather, setWeather] = useState([]);
 
   useEffect(() => {

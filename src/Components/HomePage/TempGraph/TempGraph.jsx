@@ -38,7 +38,7 @@ import {
     },
   };
   
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const labels = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
   const x =[10,40,30,50]
   export const data = {
     labels,
