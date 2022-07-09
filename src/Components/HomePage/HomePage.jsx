@@ -12,17 +12,12 @@ export const HomePage = () => {
   }, [searchWeather]);
   const handleChange = (e) => {
     setSetWeather(e.target.value);
-<<<<<<< HEAD
+
   };
-  const getData = async () => {
-=======
-    // console.log(searchWeather);
-    console.cog(searchWeather);
-  };
+
   const getData = async () => {
     // let city = "pune"
    
->>>>>>> 7d97fb5160898e7d9f41491b4987441c87e4ce02
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchWeather}&appid=000ea10fae727b5e0d08edbb2b5f07c0`;
     try {
       let res = await fetch(url);
