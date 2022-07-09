@@ -61,7 +61,9 @@ export const HomePage = () => {
           </div>
         </div>
         <div className="weather-sevenDays">
-          {weather.map((el, index) => (
+          { 
+          weather?
+          weather.map((el, index) => (
             <div key={index}>
               <div className="tempDivs">
                 <h5>{Math.floor(el.temp.max - 273)} °C</h5>
@@ -74,7 +76,8 @@ export const HomePage = () => {
                 alt="temprecutre logo"
               />
             </div>
-          ))}
+          )) : <h1>Loading...</h1>
+        }
         </div>
         <div className="temp_graph">
           <Graph />
