@@ -2,7 +2,7 @@ import "./HomePage.css";
 import locationLogo from "../../Icons/location.png";
 import searchIcon from "../../Icons/search.png";
 import { useEffect, useState } from "react";
-import { Graph } from "./tempGraph/TempGraph";
+import { Graph } from "./TempGraph/TempGraph";
 export const HomePage = () => {
   const [searchWeather, setSetWeather] = useState("pune");
   const [weather, setWeather] = useState([]);
