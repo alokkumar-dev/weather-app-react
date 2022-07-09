@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 .homeContainer {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 65%;
   margin: 10px auto;
   height: 800px;
@@ -80,4 +80,5 @@
   display: flex;
   justify-content: space-between;
   padding: 5px;
+  font-size: 18px;
 }
