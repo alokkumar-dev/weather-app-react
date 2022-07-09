@@ -2,22 +2,18 @@ import "./HomePage.css";
 import locationLogo from "../../Icons/location.png";
 import searchIcon from "../../Icons/search.png";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Graph } from "./tempGraph/TempGraph";
 export const HomePage = () => {
   const [searchWeather, setSetWeather] = useState("");
   const [weather, setWeather] = useState([]);
+
   useEffect(() => {
     getData();
   }, [searchWeather]);
   const handleChange = (e) => {
-    // console.log(e.target.value)
     setSetWeather(e.target.value);
-    // console.log(searchWeather);
   };
   const getData = async () => {
-    // let city = "patna"; //input from user.
-    // console.log(search,"f")
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchWeather}&appid=000ea10fae727b5e0d08edbb2b5f07c0`;
     try {
       let res = await fetch(url);
@@ -60,7 +56,6 @@ export const HomePage = () => {
             <img src={searchIcon} alt="search icon" />
           </div>
         </div>
-        {/* {data.map((temp) => ( */}
         <div className="weather-sevenDays">
           {weather.map((el, index) => (
             <div key={index}>
@@ -78,7 +73,7 @@ export const HomePage = () => {
           ))}
         </div>
         <div className="temp_graph">
-         <Graph />
+          <Graph />
         </div>
       </div>
     </>
