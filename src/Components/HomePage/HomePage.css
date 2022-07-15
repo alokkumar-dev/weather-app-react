@@ -95,20 +95,25 @@
   font-size: 20px;
 }
 .temp_graph{
-  border: 3px solid;
+  /* border: 3px solid; */
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  padding: 10px;
   margin-top: 90px;
   border-radius: 8px;
 }
 .pressur_humidity{
-  margin: 100px 0;
+  width: 100%;
+  margin: 50px 0;
   display: flex;
+  
 }
 .pressur_humidity>div{
   width: 100%;
-  /* height: 80px; */
   padding: 15px;
-  margin:auto 10px;
-  /* border: 1px solid saddlebrown; */
+  margin:0 10px;
+  
+}
+.temp_graph>div:nth-child(2)>div{
   background-color: #dffff4;
 
 }
