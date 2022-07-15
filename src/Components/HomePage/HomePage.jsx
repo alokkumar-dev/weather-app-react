@@ -66,15 +66,15 @@ export const HomePage = () => {
           weather.map((el, index) => (
             <div key={index}>
               <div className="tempDivs">
-                <h5>{Math.floor(el.temp.max - 273)} °C</h5>
-                <h5>{Math.floor(el.temp.max - 273)} °C</h5>
+                <h5>{Math.floor(el.temp.max - 273)}°C</h5>
+                <h5>{Math.floor(el.temp.max - 273)}°C</h5>
               </div>
-              <p>{el.weather[0].description}</p>
 
               <img
                 src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`}
                 alt="temprecutre logo"
-              />
+                />
+                <p>{el.weather[0].description}</p>
             </div>
           )) : <h1>Loading...</h1>
         }
