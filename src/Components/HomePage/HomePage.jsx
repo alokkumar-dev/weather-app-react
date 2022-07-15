@@ -3,6 +3,7 @@ import locationLogo from "../../Icons/location.png";
 import searchIcon from "../../Icons/search.png";
 import { useEffect, useState } from "react";
 import { Graph } from "./TempGraph/TempGraph";
+import sunRiseSet from "../../Icons/sunSet.png"
 export const HomePage = () => {
   const [searchWeather, setSetWeather] = useState("pune");
   const [weather, setWeather] = useState([]);
@@ -81,6 +82,17 @@ export const HomePage = () => {
         </div>
         <div className="temp_graph">
           <Graph />
+        <div className="pressur_humidity">
+          <div>
+            <h3>Pressure</h3>
+            <p>1001 hpa</p>
+          </div>
+          <div>
+            <h3>Humidity</h3>
+            <p>1001 hpa</p>
+          </div>
+        </div>
+          <img src={sunRiseSet} alt="sunRiseSet" />
         </div>
       </div>
     </>
