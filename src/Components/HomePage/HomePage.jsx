@@ -2,7 +2,7 @@ import "./HomePage.css";
 import locationLogo from "../../Icons/location.png";
 import searchIcon from "../../Icons/search.png";
 import { useEffect, useState } from "react";
-import { Graph } from "./TempGraph/TempGraph";
+// import { Graph } from "./TempGraph/TempGraph";
 import sunRiseSet from "../../Icons/sunSet.png";
 import Chart from "react-apexcharts";
 import axios from "axios";
@@ -53,7 +53,6 @@ export const HomePage = () => {
   };
   useEffect(() => {
     getData();
-    // dailyData("Agra");
   }, [searchWeather]);
   const handleChange = (e) => {
     setSearchWeather(e.target.value);
@@ -100,75 +99,66 @@ export const HomePage = () => {
         </div>
         <div className="temp_graph">
           <div className="Graph">
-            {dailyWeather.day?
-            <Chart
-              type="area"
-              series={[
-                {
-                  name: "Temperature",
-                  data: [
-                    dailyWeather.morn,
-                    dailyWeather.max,
-                    dailyWeather.day,
-                    dailyWeather.min,
-                  ],
-                },
-              ]}
-              options={{
-                dataLabels: {
-                  formatter: (val) => {
-                    // return `${val}℃`;
+            {dailyWeather.day ? (
+              <Chart
+                type="area"
+                series={[
+                  {
+                    name: "Temperature",
+                    data: [
+                      dailyWeather.morn,
+                      dailyWeather.max,
+                      dailyWeather.day,
+                      dailyWeather.min,
+                    ],
                   },
-                },
-                yaxis: {
-                  labels: {
+                ]}
+                options={{
+                  dataLabels: {
                     formatter: (val) => {
-                      return `${Math.floor(val)}℃`;
+                      // return `${val}℃`;
                     },
                   },
-                },
-                xaxis: {
-                  categories: ["6:00am", "12:00pm", "6:00pm", "12:00am"],
-                },
-              }}
-            /> : <Chart
-            type="area"
-            series={[
-              {
-                name: "Temperature",
-                data: [
-                  // dailyWeather.morn,
-                  // dailyWeather.max,
-                  // dailyWeather.day,
-                  // dailyWeather.min,
-                  20,
-                  35,
-                  25,
-                  18
-
-                ],
-              },
-            ]}
-            options={{
-              dataLabels: {
-                formatter: (val) => {
-                  // return `${val}℃`;
-                },
-              },
-              yaxis: {
-                labels: {
-                  formatter: (val) => {
-                    return `${Math.floor(val)}℃`;
+                  yaxis: {
+                    labels: {
+                      formatter: (val) => {
+                        return `${Math.floor(val)}℃`;
+                      },
+                    },
                   },
-                },
-              },
-              xaxis: {
-                categories: ["6:00am", "12:00pm", "6:00pm", "12:00am"],
-              },
-            }}
-          />
-
-}
+                  xaxis: {
+                    categories: ["6:00am", "12:00pm", "6:00pm", "12:00am"],
+                  },
+                }}
+              />
+            ) : (
+              <Chart
+                type="area"
+                series={[
+                  {
+                    name: "Temperature",
+                    data: [20, 35, 25, 18],
+                  },
+                ]}
+                options={{
+                  dataLabels: {
+                    formatter: (val) => {
+                      // return `${val}℃`;
+                    },
+                  },
+                  yaxis: {
+                    labels: {
+                      formatter: (val) => {
+                        return `${Math.floor(val)}℃`;
+                      },
+                    },
+                  },
+                  xaxis: {
+                    categories: ["6:00am", "12:00pm", "6:00pm", "12:00am"],
+                  },
+                }}
+              />
+            )}
           </div>
           <div className="pressur_humidity">
             <div>
