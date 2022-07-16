@@ -148,7 +148,7 @@ export const HomePage = () => {
                 series={[
                   {
                     name: "Temperature",
-                    data: [20, 35, 25, 18],
+                    data: [15, 30, 20, 30],
                   },
                 ]}
                 options={{
