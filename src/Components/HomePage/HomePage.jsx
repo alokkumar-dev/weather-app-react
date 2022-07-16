@@ -2,7 +2,6 @@ import "./HomePage.css";
 import locationLogo from "../../Icons/location.png";
 import searchIcon from "../../Icons/search.png";
 import { useEffect, useState } from "react";
-// import { Graph } from "./TempGraph/TempGraph";
 import sunRiseSet from "../../Icons/sunSet.png";
 import Chart from "react-apexcharts";
 import axios from "axios";
@@ -14,16 +13,13 @@ export const HomePage = () => {
   const [weatherIcon, setWeatherIcon] = useState();
 
   const dailyData = (e) => {
-    // console.log(e)
     let arr = e.temp;
     console.log(e);
-    setWeatherIcon(e.weather[0].icon)
-    //   // console.log(e,"onclick")
+    setWeatherIcon(e.weather[0].icon);
     setDailyWeather(arr);
   };
   useEffect(() => {
     axios.get("https://ipinfo.io/json?token=52ed0181817dc8").then((res) => {
-      // console.log(res.data.city)
       setSearchWeather(res.data.city);
     });
   }, []);
@@ -126,9 +122,7 @@ export const HomePage = () => {
                 ]}
                 options={{
                   dataLabels: {
-                    formatter: (val) => {
-                      // return `${val}℃`;
-                    },
+                    formatter: (val) => {},
                   },
                   yaxis: {
                     labels: {
@@ -153,9 +147,7 @@ export const HomePage = () => {
                 ]}
                 options={{
                   dataLabels: {
-                    formatter: (val) => {
-                      // return `${val}℃`;
-                    },
+                    formatter: (val) => {},
                   },
                   yaxis: {
                     labels: {

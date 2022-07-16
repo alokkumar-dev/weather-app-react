@@ -4,24 +4,22 @@
   box-sizing: border-box;
 }
 .homeContainer {
-  /* border: 1px solid black; */
   width: 70%;
-  margin: 10px auto;
   height: 800px;
+  margin: 10px auto;
 }
 
 .searchBar {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-radius: 7px;
-  display: flex;
   height: 50px;
+  display: flex;
+  border-radius: 7px;
   justify-content: space-around;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .logoDiv {
   width: 40px;
   margin-left: 5px;
   position: relative;
-  /* border: 1px solid pink; */
 }
 .logoDiv > img {
   position: absolute;
@@ -35,13 +33,11 @@
 
 .inputDiv {
   width: 100%;
-  /* border: 1px solid teal; */
 }
 .searchIconDiv {
   position: relative;
   margin-right: 5px;
   width: 40px;
-  /* border: 1px solid pink; */
 }
 .searchIconDiv > img {
   position: absolute;
@@ -79,7 +75,7 @@
   background-color: #c9fffb;
 }
 .weather-sevenDays > div:focus {
-  background-color:  #1bccec;
+  background-color: #1bccec;
   border: none;
 
   border-radius: 5px;
