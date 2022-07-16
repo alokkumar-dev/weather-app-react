@@ -78,6 +78,13 @@
   text-align: center;
   background-color: #c9fffb;
 }
+.weather-sevenDays > div:focus {
+  background-color:  #1bccec;
+  border: none;
+
+  border-radius: 5px;
+  cursor: pointer;
+}
 .weather-sevenDays > div:hover {
   border: 3px solid #04c0ca;
   border-radius: 5px;

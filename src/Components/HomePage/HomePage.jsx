@@ -81,7 +81,7 @@ export const HomePage = () => {
         <div className="weather-sevenDays">
           {weather ? (
             weather.map((el, index) => (
-              <div key={index} onClick={() => dailyData(el)}>
+              <div key={index} onClick={() => dailyData(el)} tabIndex="0">
                 <div className="tempDivs">
                   <h5>{Math.floor(el.temp.min)}°C</h5>
                   <h5>{Math.floor(el.temp.max)}°C</h5>
