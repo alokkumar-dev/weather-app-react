@@ -89,7 +89,7 @@ export const HomePage = () => {
             </div>
             <div>
               <h3>Humidity</h3>
-              <p>1001 hpa</p>
+              <p>81%</p>
             </div>
           </div>
           <div className="pressur_humidity">
