@@ -11,12 +11,13 @@ export const HomePage = () => {
   const [searchWeather, setSearchWeather] = useState("");
   const [weather, setWeather] = useState([]);
   const [dailyWeather, setDailyWeather] = useState([]);
+  const [weatherIcon, setWeatherIcon] = useState();
 
   const dailyData = (e) => {
     // console.log(e)
     let arr = e.temp;
     console.log(e);
-    //  setIcon(e.weather[0].icon)
+    setWeatherIcon(e.weather[0].icon)
     //   // console.log(e,"onclick")
     setDailyWeather(arr);
   };
@@ -98,6 +99,16 @@ export const HomePage = () => {
           )}
         </div>
         <div className="temp_graph">
+          <div className="temp_img">
+            <h1>{Math.floor(dailyWeather.max ? dailyWeather.max : 30)}°C</h1>
+            <img
+              src={`http://openweathermap.org/img/wn/${
+                weatherIcon ? weatherIcon : "10d"
+              }@2x.png`}
+              alt="img"
+            />
+          </div>
+
           <div className="Graph">
             {dailyWeather.day ? (
               <Chart

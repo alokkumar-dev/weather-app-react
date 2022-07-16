@@ -117,4 +117,17 @@
 .temp_graph>div:nth-child(2)>div{
   background-color: #dffff4;
 
+
 }
+.temp_img{
+  display: flex;
+  padding-left: 40px;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.temp_img img{
+  width: 130px;
+  height: 130px;
+}
+
