@@ -71,7 +71,7 @@
   text-transform: capitalize;
   height: 230px;
   text-align: center;
-  background-color: #c9fffb;
+  background-color: #c9f3ff;
 }
 .weather-sevenDays > div:focus {
   background-color: #1bccec;
@@ -122,7 +122,6 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .temp_img > h1 {
-  /* color: blue; */
   font-size: 3rem;
 }
 .temp_img > img {
