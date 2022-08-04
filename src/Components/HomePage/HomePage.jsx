@@ -24,6 +24,18 @@ export const HomePage = () => {
     });
   }, []);
 
+  // let movie_wait;
+
+  // function debounce(func, delay) {
+  //   if (movie_wait) {
+  //     clearTimeout(movie_wait);
+  //   }
+
+  //   movie_wait = setTimeout(function () {
+  //     func();
+  //   }, delay);
+  // }
+
   const getData = async () => {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchWeather}&appid=000ea10fae727b5e0d08edbb2b5f07c0`;
     try {
