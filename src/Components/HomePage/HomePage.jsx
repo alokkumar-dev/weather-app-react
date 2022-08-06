@@ -1,7 +1,7 @@
 import "./HomePage.css";
 import locationLogo from "../../Icons/location.png";
 import searchIcon from "../../Icons/search.png";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import sunRiseSet from "../../Icons/sunSet.png";
 import Chart from "react-apexcharts";
 import axios from "axios";
@@ -24,18 +24,6 @@ export const HomePage = () => {
     });
   }, []);
 
-  // let movie_wait;
-
-  // function debounce(func, delay) {
-  //   if (movie_wait) {
-  //     clearTimeout(movie_wait);
-  //   }
-
-  //   movie_wait = setTimeout(function () {
-  //     func();
-  //   }, delay);
-  // }
-
   const getData = async () => {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchWeather}&appid=000ea10fae727b5e0d08edbb2b5f07c0`;
     try {
@@ -55,17 +43,34 @@ export const HomePage = () => {
       let res = await fetch(url);
       let data = await res.json();
       console.log("data", data);
-      setWeather(data.daily);
+      setWeather(data);
     } catch (error) {
       console.log(error);
     }
   };
-  useEffect(() => {
-    getData();
-  }, [searchWeather]);
+
   const handleChange = (e) => {
     setSearchWeather(e.target.value);
   };
+
+  const debouncer = (func) => {
+    let timer;
+    return function (...args) {
+      const context = this;
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        timer = null;
+        func.apply(context, args);
+      }, 1500);
+    };
+  };
+
+  const optimizedVersion = useCallback(debouncer(handleChange), []);
+
+  useEffect(() => {
+    getData();
+  }, [searchWeather]);
+
   return (
     <>
       <div className="homeContainer">
@@ -76,8 +81,8 @@ export const HomePage = () => {
           <div className="inputDiv">
             <input
               type="text"
-              onChange={handleChange}
-              value={searchWeather}
+              onChange={(e) => optimizedVersion(e)}
+              // value={""}
               className="inputBox"
               placeholder="enter your city"
             />
@@ -87,8 +92,8 @@ export const HomePage = () => {
           </div>
         </div>
         <div className="weather-sevenDays">
-          {weather ? (
-            weather.map((el, index) => (
+          {weather.daily ? (
+            weather.daily.map((el, index) => (
               <div key={index} onClick={() => dailyData(el)} tabIndex="0">
                 <div className="tempDivs">
                   <h5>{Math.floor(el.temp.min)}°C</h5>
@@ -107,15 +112,23 @@ export const HomePage = () => {
           )}
         </div>
         <div className="temp_graph">
-          <div className="temp_img">
-            <h1>{Math.floor(dailyWeather.max ? dailyWeather.max : 30)}°C</h1>
-            <img
-              src={`http://openweathermap.org/img/wn/${
-                weatherIcon ? weatherIcon : "10d"
-              }@2x.png`}
-              alt="img"
-            />
-          </div>
+          {weather.daily ? (
+            <div className="temp_img">
+              <h1>
+                {Math.floor(
+                  dailyWeather.max ? dailyWeather.max : weather.current.temp
+                )}
+                °C
+              </h1>
+              <img
+                src={`http://openweathermap.org/img/wn/${weatherIcon ? weatherIcon : weather.current.weather[0].icon}@2x.png`}
+                alt="img"
+              />
+              <h1 className="city_name">
+                {searchWeather.length > 2 ? searchWeather : null}
+              </h1>
+            </div>): <h1>Loading...</h1>
+          }
 
           <div className="Graph">
             {dailyWeather.day ? (
