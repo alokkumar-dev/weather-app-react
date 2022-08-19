@@ -121,14 +121,18 @@ export const HomePage = () => {
                 °C
               </h1>
               <img
-                src={`http://openweathermap.org/img/wn/${weatherIcon ? weatherIcon : weather.current.weather[0].icon}@2x.png`}
-                alt="img"
+                src={`http://openweathermap.org/img/wn/${
+                  weatherIcon ? weatherIcon : weather.current.weather[0].icon
+                }@2x.png`}
+                alt="weather icon"
               />
               <h1 className="city_name">
                 {searchWeather.length > 2 ? searchWeather : null}
               </h1>
-            </div>): <h1>Loading...</h1>
-          }
+            </div>
+          ) : (
+            <h1>Loading...</h1>
+          )}
 
           <div className="Graph">
             {dailyWeather.day ? (
@@ -208,7 +212,7 @@ export const HomePage = () => {
               <p>6:45 PM</p>
             </div>
           </div>
-          <img src={sunRiseSet} width="100%" alt="sunRiseSet" />
+          <img src={sunRiseSet} width="100%" alt="sun RiseSet" />
         </div>
       </div>
     </>
