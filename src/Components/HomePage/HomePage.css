@@ -7,7 +7,6 @@
   width: 70%;
   margin: 10px auto;
 }
-
 .searchBar {
   width: 100%;
   height: 50px;
@@ -30,7 +29,6 @@
   margin: auto;
   position: absolute;
 }
-
 .inputDiv {
   width: 100%;
 }
@@ -48,7 +46,6 @@
   margin: auto;
   position: absolute;
 }
-
 .inputBox {
   width: 100%;
   height: 100%;
@@ -56,7 +53,6 @@
   font-size: 18px;
   font-weight: 600;
 }
-
 .weather-sevenDays {
   gap: 0.8%;
   display: grid;

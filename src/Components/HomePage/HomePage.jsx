@@ -1,16 +1,16 @@
-import "./HomePage.css";
+import { useCallback, useEffect, useState } from "react";
 import locationLogo from "../../Icons/location.png";
 import searchIcon from "../../Icons/search.png";
-import { useCallback, useEffect, useState } from "react";
 import sunRiseSet from "../../Icons/sunSet.png";
 import Chart from "react-apexcharts";
 import axios from "axios";
+import "./HomePage.css";
 
 export const HomePage = () => {
   const [searchWeather, setSearchWeather] = useState("");
-  const [weather, setWeather] = useState([]);
   const [dailyWeather, setDailyWeather] = useState([]);
   const [weatherIcon, setWeatherIcon] = useState();
+  const [weather, setWeather] = useState([]);
 
   const dailyData = (e) => {
     let arr = e.temp;
