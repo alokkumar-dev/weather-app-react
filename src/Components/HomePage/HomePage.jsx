@@ -131,7 +131,7 @@ export const HomePage = () => {
               </h1>
             </div>
           ) : (
-            <h1>Loading...</h1>
+            <h1>Loading.</h1>
           )}
 
           <div className="Graph">
