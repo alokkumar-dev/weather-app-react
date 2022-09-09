@@ -108,7 +108,12 @@ export const HomePage = () => {
               </div>
             ))
           ) : (
-            <img src="https://i.stack.imgur.com/kOnzy.gif" height={"100px"} width={"100px"} alt="loading gif"/>
+            <img
+              src="https://i.stack.imgur.com/kOnzy.gif"
+              height={"100px"}
+              width={"100px"}
+              alt="loading gif"
+            />
           )}
         </div>
         <div className="temp_graph">
@@ -131,7 +136,12 @@ export const HomePage = () => {
               </h1>
             </div>
           ) : (
-            <img src="https://i.stack.imgur.com/kOnzy.gif" height={"100px"} width={"100px"} alt="loading gif"/>
+            <img
+              src="https://i.stack.imgur.com/kOnzy.gif"
+              height={"100px"}
+              width={"100px"}
+              alt="loading gif"
+            />
           )}
 
           <div className="Graph">
