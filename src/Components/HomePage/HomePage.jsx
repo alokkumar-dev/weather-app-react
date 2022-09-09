@@ -102,7 +102,7 @@ export const HomePage = () => {
 
                 <img
                   src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`}
-                  alt="temprecutre logo"
+                  alt="temperature logo"
                 />
                 <p>{el.weather[0].description}</p>
               </div>
