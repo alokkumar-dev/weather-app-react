@@ -7,7 +7,7 @@ import axios from "axios";
 import "./HomePage.css";
 
 export const HomePage = () => {
-  const [searchWeather, setSearchWeather] = useState("");
+  const [searchWeather, setSearchWeather] = useState("Ghaziabad");
   const [dailyWeather, setDailyWeather] = useState([]);
   const [weatherIcon, setWeatherIcon] = useState();
   const [weather, setWeather] = useState([]);
